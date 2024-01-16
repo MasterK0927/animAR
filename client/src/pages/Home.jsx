@@ -17,18 +17,19 @@ const Home = () => {
     <AnimatePresence>
       {snap.intro && (
         <motion.section className="home" {...slideAnimation("left")}>
-          <motion.header {...slideAnimation("down")}>
+          <motion.header {...slideAnimation("down")} className="flex justify-center items-center">
             <img
               src="./threejs.png"
               alt="logo"
-              className="w-8 h-8 object-contain"
+              className="w-20 h-20 object-contain"
             />
+            <button class="center w-15 h-10 bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-500 transform hover:scale-105 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 animate-colorChange">AR</button>
           </motion.header>
 
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className="head-text">
-                LET'S <br className="xl:block hidden" /> DO IT.
+                animAR <br className="xl:block hidden" /> Create
               </h1>
             </motion.div>
             <motion.div

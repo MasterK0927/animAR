@@ -9,6 +9,10 @@ html {
   font-family: "Inter", sans-serif;
 }
 
+body {
+  background: linear-gradient(90deg, #92FE9D 0%, #00C9FF 100%);
+}
+
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
@@ -87,6 +91,28 @@ input[type="file"] {
   border-radius: 6px !important;
 }
 
-.sketch-picker > div:nth-child(3) {
+.sketch-picker>div:nth-child(3) {
   display: none !important;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: #3490dc;
+  }
+
+  25% {
+    background-color: #38a169;
+  }
+
+  50% {
+    background-color: #f6993f;
+  }
+
+  75% {
+    background-color: #d53f8c;
+  }
+
+  100% {
+    background-color: #3490dc;
+  }
 }
