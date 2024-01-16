@@ -9,3 +9,5 @@
 1. Clone the repository: `git clone https://github.com/masterK0927/animAR.git`
 2. Install the necessary dependencies: `npm install`
 3. Run the application: `npm start`
+
+animar-ieee.vercel.app

@@ -23,7 +23,7 @@ const Home = () => {
               alt="logo"
               className="w-20 h-20 object-contain"
             />
-            <button class="center w-15 h-10 bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-500 transform hover:scale-105 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 animate-colorChange">AR</button>
+            <a href='https://floating-beyond-24611-5e378c213419.herokuapp.com/'><button class="center w-15 h-10 bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-500 transform hover:scale-105 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 animate-colorChange">AR</button></a>
           </motion.header>
 
           <motion.div className="home-content" {...headContainerAnimation}>
