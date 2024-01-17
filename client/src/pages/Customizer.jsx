@@ -6,7 +6,7 @@ import config from '../config/config';
 import state from '../store';
 import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
-import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
+import { EditorTabs, FilterTabs, DecalTypes, DownldTabs } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 
@@ -36,7 +36,7 @@ const Customizer = () => {
           readFile={readFile}
         />
       case "aipicker":
-        return <AIPicker 
+        return <AIPicker
           prompt={prompt}
           setPrompt={setPrompt}
           generatingImg={generatingImg}
@@ -48,7 +48,7 @@ const Customizer = () => {
   }
 
   const handleSubmit = async (type) => {
-    if(!prompt) return alert("Please enter a prompt");
+    if (!prompt) return alert("Please enter a prompt");
 
     try {
       setGeneratingImg(true);
@@ -66,6 +66,7 @@ const Customizer = () => {
       const data = await response.json();
 
       handleDecals(type, `data:image/png;base64,${data.photo}`)
+      
     } catch (error) {
       alert(error)
     } finally {
@@ -79,7 +80,7 @@ const Customizer = () => {
 
     state[decalType.stateProperty] = result;
 
-    if(!activeFilterTab[decalType.filterTab]) {
+    if (!activeFilterTab[decalType.filterTab]) {
       handleActiveFilterTab(decalType.filterTab)
     }
   }
@@ -87,10 +88,10 @@ const Customizer = () => {
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
       case "logoShirt":
-          state.isLogoTexture = !activeFilterTab[tabName];
+        state.isLogoTexture = !activeFilterTab[tabName];
         break;
       case "stylishShirt":
-          state.isFullTexture = !activeFilterTab[tabName];
+        state.isFullTexture = !activeFilterTab[tabName];
         break;
       default:
         state.isLogoTexture = true;
@@ -128,7 +129,7 @@ const Customizer = () => {
             <div className="flex items-center min-h-screen">
               <div className="editortabs-container tabs">
                 {EditorTabs.map((tab) => (
-                  <Tab 
+                  <Tab
                     key={tab.name}
                     tab={tab}
                     handleClick={() => setActiveEditorTab(tab.name)}
@@ -144,7 +145,7 @@ const Customizer = () => {
             className="absolute z-10 top-5 right-5"
             {...fadeAnimation}
           >
-            <CustomButton 
+            <CustomButton
               type="filled"
               title="Go Back"
               handleClick={() => state.intro = true}
@@ -163,6 +164,13 @@ const Customizer = () => {
                 isFilterTab
                 isActiveTab={activeFilterTab[tab.name]}
                 handleClick={() => handleActiveFilterTab(tab.name)}
+              />
+            ))}
+            {DownldTabs.map((tab) => (
+              <Tab
+              key={tab.name}
+              tab={tab}
+              handleClick={downloadCanvasToImage}
               />
             ))}
           </motion.div>
